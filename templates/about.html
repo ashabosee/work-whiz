@@ -2,22 +2,22 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>JobBoard &mdash; Website Template by Colorlib</title>
+    <title>WorkWhizz &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link rel="stylesheet" href="css/custom-bs.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/line-icons/style.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/quill.snow.css">
+    <link rel="stylesheet" href="/static/css/custom-bs.css">
+    <link rel="stylesheet" href="/static/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/static/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="/static/fonts/line-icons/style.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/animate.min.css">
+    <link rel="stylesheet" href="/static/css/quill.snow.css">
     
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="/static/css/style.css">    
   </head>
   <body id="top">
 
@@ -27,16 +27,18 @@
       <span class="sr-only">Loading...</span>
     </div>
   </div>
-    
-
-<div class="site-wrap">
+    <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
           <span class="icon-close2 js-menu-toggle"></span>
         </div>
-      </div>
+      </div>  
+
+
+
+    
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
     
@@ -45,31 +47,28 @@
     <header class="site-navbar mt-3">
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="site-logo col-6"><a href="index.html">JobBoard</a></div>
+          <div class="site-logo col-6"><a href="/index">WORKWHIZZ</a></div>
 
           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-              <li><a href="index.html" class="nav-link">Home</a></li>
-              <li><a href="about.html" class="active">About</a></li>
-              <li class="has-children">
-                <a href="job-listings.html">Job Listings</a>
-                <ul class="dropdown">
-                  <li><a href="job-single.html">Job Single</a></li>
-                  <li><a href="post-job.html">Post a Job</a></li>
+              <li><a href="/index" class="nav-link">Home</a></li>
+              <li><a href="/about" class="active">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+              
                 </ul>
               </li>
               
           
-              <li><a href="contact.html">Contact</a></li>
-              <li class="d-lg-none"><a href="post-job.html"><span class="mr-2">+</span> Post a Job</a></li>
-              <li class="d-lg-none"><a href="login.html">Log In</a></li>
+              
+              <li class="d-lg-none"><a href="/employer_login"><span class="mr-2">+</span> Employer Log in</a></li>
+              <li class="d-lg-none"><a href="/login">Log In</a></li>
             </ul>
           </nav>
           
           <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
             <div class="ml-auto">
-              <a href="post-job.html" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>Post a Job</a>
-              <a href="login.html" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Log In</a>
+              <a href="/employer_login" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-add"></span>Employer Log in</a>
+              <a href="/login" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Log In</a>
             </div>
             <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
           </div>
@@ -79,7 +78,7 @@
     </header>
 
     <!-- HOME -->
-    <section class="section-hero overlay inner-page bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+    <section class="section-hero overlay inner-page bg-image" style="background-image: url('/static/images/hero_1.jpg');" id="home-section">
       <div class="container">
         <div class="row">
           <div class="col-md-7">
@@ -93,12 +92,12 @@
       </div>
     </section>
 
-    <section class="py-5 bg-image overlay-primary fixed overlay" id="next-section" style="background-image: url('images/hero_1.jpg');">
+    <section class="py-5 bg-image overlay-primary fixed overlay" id="next-section" style="background-image: url('/static/images/hero_1.jpg');">
       <div class="container">
         <div class="row mb-5 justify-content-center">
           <div class="col-md-7 text-center">
-            <h2 class="section-title mb-2 text-white">JobBoard Site Stats</h2>
-            <p class="lead text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita unde officiis recusandae sequi excepturi corrupti.</p>
+            <h2 class="section-title mb-2 text-white">WorkWhizz site status</h2>
+            <p class="lead text-white">Find Your Next Opportunity with Ease</p>
           </div>
         </div>
         <div class="row pb-0 block__19738 section-counter">
@@ -141,15 +140,15 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-5 mb-lg-0">
-            <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" class="block__96788">
+            <a data-fancybox data-ratio="2" href="https://www.youtube.com/watch?v=AjjgOhtJ4ZI" class="block__96788">
               <span class="play-icon"><span class="icon-play"></span></span>
-              <img src="images/sq_img_6.jpg" alt="Image" class="img-fluid img-shadow">
+              <img src="/static/images/sq_img_6.jpg" alt="Image" class="img-fluid img-shadow">
             </a>
           </div>
           <div class="col-lg-5 ml-auto">
-            <h2 class="section-title mb-3">JobBoard For Freelancers, Web Developers</h2>
-            <p class="lead">Eveniet voluptatibus voluptates suscipit minima, cum voluptatum ut dolor, sed facere corporis qui, ea quisquam quis odit minus nulla vitae. Sit, voluptatem.</p>
-            <p>Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur. Expedita tempora quos nobis earum hic ex asperiores quisquam optio nostrum sit!</p>
+            <h2 class="section-title mb-3">WorkWhizz For Freelancers, Web Developers</h2>
+            <p class="lead">Are you a skilled web developer looking for exciting freelance opportunities? Join our dynamic team at WorkWhizz Job Port! We connect talented developers with top-tier clients seeking cutting-edge websites and applications.</p>
+            <p>Collaborate with clients to understand their needs and deliver tailored solutions.Ensure high performance, quality, and responsiveness of applications.Stay updated with the latest industry trends and technologies.</p>
           </div>
         </div>
       </div>
@@ -159,20 +158,19 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-5 mb-lg-0 order-md-2">
-            <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" class="block__96788">
+            <a data-fancybox data-ratio="2" href="https://www.youtube.com/watch?v=m8NofwsY1YQ/" class="block__96788">
               <span class="play-icon"><span class="icon-play"></span></span>
-              <img src="images/sq_img_8.jpg" alt="Image" class="img-fluid img-shadow">
+              <img src="/static/images/sq_img_8.jpg" alt="Image" class="img-fluid img-shadow">
             </a>
           </div>
           <div class="col-lg-5 mr-auto order-md-1  mb-5 mb-lg-0">
-            <h2 class="section-title mb-3">JobBoard For Workers</h2>
-            <p class="lead">Eveniet voluptatibus voluptates suscipit minima, cum voluptatum ut dolor, sed facere corporis qui, ea quisquam quis odit minus nulla vitae. Sit, voluptatem.</p>
-            <p>Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur. Expedita tempora quos nobis earum hic ex asperiores quisquam optio nostrum sit!</p>
+            <h2 class="section-title mb-3">WorkWhizz For Workers</h2>
+            <p class="lead">We are excited to announce our partnership with WorkWhizz Job Port, bringing you even more opportunities to find the perfect and web development projects. JobBoard for Workers, your trusted platform for job searches, now offers enhanced access to freelance gigs and remote work options through WorkWhizz Job Port.</p>
+            <p></p>
           </div>
         </div>
       </div>
     </section>
-
    
     <section class="site-section">
       <div class="container">
@@ -184,37 +182,104 @@
 
         <div class="row align-items-center block__69944">
 
-          <div class="col-md-6">
-            <img src="images/person_6.jpg" alt="Image" class="img-fluid mb-4 rounded">
+          <div class="col-md-4">
+            <img src="/static/images/vismay.jpeg" alt="Image" class="img-fluid mb-4 rounded">
           </div>
 
           <div class="col-md-6">
-            <h3>Elisabeth Smith</h3>
-            <p class="text-muted">Creative Director</p>
-            <p>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae voluptatibus ut? Ex vel  ad explicabo iure ipsa possimus consectetur neque rem molestiae eligendi velit?.</p>
-            <div class="social mt-4">
+            <h3>Vismay Harshakumar</h3>
+            <p class="text-muted">CEO</p>
+            <p>Vismay, the dynamic CEO of WorkWhizz Job Port, brings over 20 years of experience in the tech industry. With a passion for connecting talented persons with top-notch clients, Vismay has transformed WorkWhizz into a leading platform for freelance opportunities. His strategic vision and commitment to excellence have driven the company’s growth, making it a trusted resource for both freelancers and employers. Under his leadership, WorkWhizz Job Port continues to innovate and expand, helping professionals achieve their career goals and succeed in the digital marketplace.</p>
+            <div class="social mt-6">
               <a href="#"><span class="icon-facebook"></span></a>
               <a href="#"><span class="icon-twitter"></span></a>
               <a href="#"><span class="icon-instagram"></span></a>
               <a href="#"><span class="icon-linkedin"></span></a>
             </div>
           </div>
+          
+          <div class="row align-items-center block__69944">
 
-          <div class="col-md-6 order-md-2 ml-md-auto">
-            <img src="images/person_5.jpg" alt="Image" class="img-fluid mb-4 rounded">
-          </div>
-
-          <div class="col-md-6">
-            <h3>Chintan Patel</h3>
-            <p class="text-muted">Creative Director</p>
-            <p>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae voluptatibus ut? Ex vel  ad explicabo iure ipsa possimus consectetur neque rem molestiae eligendi velit?.</p>
-            <div class="social mt-4">
-              <a href="#"><span class="icon-facebook"></span></a>
-              <a href="#"><span class="icon-twitter"></span></a>
-              <a href="#"><span class="icon-instagram"></span></a>
-              <a href="#"><span class="icon-linkedin"></span></a>
+            <div class="col-md-4">
+              <img src="/static/images/achutha.jpeg" alt="Image" class="img-fluid mb-4 rounded">
             </div>
-          </div>
+  
+            <div class="col-md-6">
+              <h3>Achutha</h3>
+              <p class="text-muted">Business Development Manager</p>
+              <p>Achutha is the business development manager at WorkWhizz Job Port. She is dedicated to driving the company's growth by identifying new business opportunities, building strong client relationships, and implementing strategic plans. Achutha's role involves understanding market trends, developing partnerships, and ensuring the company's offerings align with customer needs. Her expertise and proactive approach are vital to the success of WorkWhizz Job Port..</p>
+              <div class="social mt-6">
+                <a href="#"><span class="icon-facebook"></span></a>
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-instagram"></span></a>
+                <a href="#"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+           
+       
+            
+          <div class="row align-items-center block__69944">
+
+            <div class="col-md-4">
+              <img src="/static/images/asha.jpeg" alt="Image" class="img-fluid mb-4 rounded">
+            </div>
+  
+            <div class="col-md-6">
+              <h3>Asha Bose</h3>
+              <p class="text-muted">Creative Director</p>
+              <p>Asha is a seasoned Creative Director with a rich background in shaping brand identities and leading creative teams. With a passion for innovation and a keen eye for design, Asha plays a pivotal role in defining and executing WorkWhizz Job Port's creative strategy. Her leadership ensures that every project and campaign reflects the platform's commitment to excellence and creativity. Asha's collaborative approach fosters a dynamic environment where ideas flourish and creative solutions thrive, making WorkWhizz Job Port a hub for innovative talent and impactful creativity.</p>
+              <div class="social mt-6">
+                <a href="#"><span class="icon-facebook"></span></a>
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-instagram"></span></a>
+                <a href="#"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+          
+    
+      
+         
+          <div class="row align-items-center block__69944">
+
+            <div class="col-md-4">
+              <img src="/static/images/anseena.jpeg" alt="Image" class="img-fluid mb-4 rounded">
+            </div>
+  
+            <div class="col-md-6">
+              <h3>Anseena</h3>
+              <p class="text-muted">HR Manager </p>
+              <p>Anseena's role involves developing HR policies, coordinating training programs, and fostering a positive workplace culture. Her expertise in handling HR matters ensures that the company attracts and retains top talent while maintaining a productive and supportive work environment.</p>
+              <div class="social mt-6">
+                <a href="#"><span class="icon-facebook"></span></a>
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-instagram"></span></a>
+                <a href="#"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+            <div class="row align-items-center block__69944">
+
+              <div class="col-md-4">
+                <img src="/static/images/jisha.jpeg" alt="Image" class="img-fluid mb-4 rounded">
+              </div>
+    
+              <div class="col-md-6">
+                <h3>jisha</h3>
+                <p class="text-muted">Customer Service Manager </p>
+                <p>Jisha is the customer service manager at WorkWhizz Job Port. She is responsible for overseeing the customer service team, ensuring high levels of customer satisfaction, and resolving any issues that clients may encounter. Jisha's role involves managing support operations, training staff, and implementing effective service strategies. Her dedication to enhancing the customer experience and her ability to address client concerns efficiently are crucial to maintaining WorkWhizz Job Port's reputation for excellent service.
+
+                  .</p>
+                <div class="social mt-6">
+                  <a href="#"><span class="icon-facebook"></span></a>
+                  <a href="#"><span class="icon-twitter"></span></a>
+                  <a href="#"><span class="icon-instagram"></span></a>
+                  <a href="#"><span class="icon-linkedin"></span></a>
+                </div>
+              </div>
+            
+  
+          
+        
+         
       </div>
     </section>
 
@@ -241,19 +306,11 @@
             <h3>Company</h3>
             <ul class="list-unstyled">
               <li><a href="#">About Us</a></li>
-              <li><a href="#">Career</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Resources</a></li>
+              
+           
             </ul>
           </div>
-          <div class="col-6 col-md-3 mb-4 mb-md-0">
-            <h3>Support</h3>
-            <ul class="list-unstyled">
-              <li><a href="#">Support</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-            </ul>
-          </div>
+          
           <div class="col-6 col-md-3 mb-4 mb-md-0">
             <h3>Contact Us</h3>
             <div class="footer-social">
@@ -269,7 +326,7 @@
           <div class="col-12">
             <p class="copyright"><small>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
           </div>
         </div>
@@ -279,22 +336,22 @@
   </div>
 
     <!-- SCRIPTS -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/stickyfill.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/isotope.pkgd.min.js"></script>
+    <script src="/static/js/stickyfill.min.js"></script>
+    <script src="/static/js/jquery.fancybox.min.js"></script>
+    <script src="/static/js/jquery.easing.1.3.js"></script>
     
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/quill.min.js"></script>
+    <script src="/static/js/jquery.waypoints.min.js"></script>
+    <script src="/static/js/jquery.animateNumber.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/quill.min.js"></script>
     
     
-    <script src="js/bootstrap-select.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
     
-    <script src="js/custom.js"></script>
+    <script src="/static/js/custom.js"></script>
    
    
   </body>

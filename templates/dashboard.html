@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Employer Dashboard - WorkWhizz</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css"> <!-- Replace with your actual CSS file -->
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/dashboard">WorkWhizz Employer Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a> <!-- Replace with your actual logout route -->
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Welcome, {{ employer.company_name }}</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Email:</strong> {{ employer.email }}</p>
+                    <p><strong>Company Name:</strong> {{ employer.company_name }}</p>
+                    {% if employer.tagline %}
+                    <p><strong>Tagline:</strong> {{ employer.tagline }}</p>
+                    {% endif %}
+                    {% if employer.website %}
+                    <p><strong>Website:</strong> <a href="{{ employer.website }}" target="_blank">{{ employer.website }}</a></p>
+                    {% endif %}
+                    {% if employer.logo %}
+                    <p><strong>Logo:</strong> <img src="{{ employer.logo }}" alt="Company Logo" class="img-fluid"></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
