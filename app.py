@@ -11,6 +11,14 @@ def home():
     mHead = "Connecting You To Your future"
     return render_template("index.html", ab = mHead )
 
+@app.route("/temp")
+def temp():
+    return render_template("all-job.html")
+
+@app.route("/temp2")
+def temp2():
+    return render_template("job-single.html")
+
 @app.route("/about")
 def about():
     return render_template("about.html")
