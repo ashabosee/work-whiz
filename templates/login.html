@@ -95,24 +95,24 @@
         <div class="row">
           <div class="col-lg-6 mb-5">
             <h2 class="mb-4">Jobseeker sign in</h2>
-            <form action="/signup" method="post" class="p-4 border rounded">
+            <form action="/login" method="post" class="p-4 border rounded">
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="text-black" for="fname">Email</label>
-                  <input type="text" id="fname" class="form-control" placeholder="Email address" name="email">
+                  <input type="text" id="fname" class="form-control" placeholder="Email address" name="sign_email">
                 </div>
               </div>
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="text-black" for="fname">Password</label>
-                  <input type="password" id="fname" class="form-control" placeholder="Password" name="password">
+                  <input type="password" id="fname" class="form-control" placeholder="Password" name="sign_password">
                 </div>
               </div>
               <div class="row form-group mb-4">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="text-black" for="fname">Re-Type Password</label>
-                  <input type="password" id="fname" class="form-control" placeholder="Re-type Password" name="re_password">
+                  <input type="password" id="fname" class="form-control" placeholder="Re-type Password" name="sign_re_password">
                 </div>
               </div>
 
@@ -126,7 +126,7 @@
           </div>
           <div class="col-lg-6">
             <h2 class="mb-4">Jobseeker Login</h2>
-            <form action="/user_login" class="p-4 border rounded" method="post">
+            <form action="/login" class="p-4 border rounded" method="post">
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">

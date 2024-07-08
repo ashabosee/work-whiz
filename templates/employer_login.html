@@ -84,42 +84,37 @@
           <div class="row">
             <div class="col-lg-6 mb-5">
               <h2 class="mb-4">Employer Sign Up</h2>
-              <form action="/employer_login" class="p-4 border rounded">
+              <form action="/employer_login" method='post' class="p-4 border rounded">
                   <div class="form-group">
                     <label for="company-name">Company Name</label>
-                    <input type="text" class="form-control" id="company-name" placeholder="e.g. New York">
+                    <input type="text" class="form-control" name="company-name" id="company-name" placeholder="e.g. New York" required>
                   </div>
     
                   <div class="form-group">
-                    <label for="company-tagline">Tagline (Optional)</label>
-                    <input type="text" class="form-control" id="company-tagline" placeholder="e.g. New York">
+                    <label for="company-tagline">Tagline</label>
+                    <input type="text" class="form-control" id="company-tagline" name="company-tagline" placeholder="e.g. New York" required>
                   </div>  
 
                   <div class="form-group">
-                    <label for="company-website">Website (Optional)</label>
-                    <input type="text" class="form-control" id="company-website" placeholder="https://">
+                    <label for="company-website">Website</label>
+                    <input type="text" class="form-control" id="company-website" name="company-website" placeholder="https://" required>
                   </div>
                   
-                  <div class="form-group">
-                    <label for="company-logo" class="d-block">Upload Logo</label> 
-                    <label class="btn btn-primary btn-md btn-file">
-                      Browse File<input type="file" id="company-logo" hidden>
-                    </label>
-                  </div>
+               
 
                   <div class="form-group">
                     <label class="text-black" for="email">Email</label>
-                    <input type="text" id="email" class="form-control" placeholder="Email address">
+                    <input type="text" id="email" class="form-control" name="email" placeholder="Email address" required>
                   </div>
                 
                   <div class="form-group">
                     <label class="text-black" for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Password">
+                    <input type="password" id="password" class="form-control" name="password" placeholder="Password" required>
                   </div>
                 
                   <div class="form-group mb-4">
                     <label class="text-black" for="retype-password">Re-Type Password</label>
-                    <input type="password" id="retype-password" class="form-control" placeholder="Re-type Password">
+                    <input type="password" id="retype-password" class="form-control" name="re_password" placeholder="Re-type Password" required>
                   </div>
   
                   <div class="form-group">
@@ -130,15 +125,15 @@
 
             <div class="col-lg-6">
               <h2 class="mb-4">Employer Log In</h2>
-              <form action="/emp_login" method="post" class="p-4 border rounded">
+              <form action="/employer_login" method="post" class="p-4 border rounded">
                 <div class="form-group">
                   <label class="text-black" for="login-email">Email</label>
-                  <input type="text" id="login-email" class="form-control" placeholder="Email address" name="email">
+                  <input type="text" id="login-email" class="form-control" placeholder="Email address" name="log_email">
                 </div>
                 
                 <div class="form-group mb-4">
                   <label class="text-black" for="login-password">Password</label>
-                  <input type="password" id="login-password" class="form-control" placeholder="Password" name="password">
+                  <input type="password" id="login-password" class="form-control" placeholder="Password" name="log_password">
                 </div>
   
                 <div class="form-group">
