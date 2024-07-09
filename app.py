@@ -166,7 +166,7 @@ def company_dash():
     jobs = cursor.fetchall()
     conn.close()
     print(jobs)
-    return render_template("company-dash.html")  
+    return render_template("company-dash.html", jobs = jobs)  
 
 @app.route('/company/posts')
 def company_posts():
