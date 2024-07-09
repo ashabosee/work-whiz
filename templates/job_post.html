@@ -1,3 +1,90 @@
+
+{%extends "company-base.html" %}
+
+{%block content%} 
+
+{% block header %}
+  <h1 hidden="hidden"> {% block title %} Post Job {% endblock %} </h1>
+{% endblock %}
+
+
+
+<!-- Job Posting Section -->
+<section class="site-section">
+  <div class="container">
+    <h1 class="text-center">Post A Job</h1>
+    
+    
+    <form action="/company/posts/add" method="post" class="p-4 border rounded">
+      <h2 class="mb-4">Job Details</h2>
+      <div class="row form-group">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <label for="job-region" class="text-black">Job Region</label>
+          <input type="text" id="job-region" class="form-control" placeholder="e.g. New York" name="region">
+        </div>
+        <div class="col-md-6">
+          <label for="job-type" class="text-black">Job Type</label>
+          <input type="text" id="job-type" class="form-control" placeholder="e.g. Full-Time, Part-Time" name="job-type">
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label for="job-description" class="text-black">Job Description</label>
+          <textarea name="job-description" id="job-description" cols="30" rows="7" class="form-control" placeholder="Write your job description here..."></textarea>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary btn-md text-white">Save Job</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
 <html lang="en">
   <head>

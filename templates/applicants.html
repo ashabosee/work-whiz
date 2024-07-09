@@ -1,0 +1,108 @@
+{%extends "company-base.html" %}
+
+{%block content%} 
+
+{% block header %}
+  <h1 hidden="hidden"> {% block title %} Applicants {% endblock %} </h1>
+{% endblock %}
+
+<style>
+/* CSS */
+.button-3 {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #2c974b;
+}
+
+.button-3:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.button-3:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.button-3:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+</style>
+
+<section class="site-section" id="next">
+  <div class="container">
+
+    <div class="row mb-5 justify-content-center">
+      <div class="col-md-7 text-center">
+        <h2 class="section-title mb-2">22,392 Applicants</h2>
+      </div>
+    </div>
+    
+    <ul class="job-listings mb-5">
+
+
+      <!-- item -->
+
+      <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+        <a href="{{url_for('company_posts')}}"></a>
+        
+
+        <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+          <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+            <h2>Product Designer</h2>
+            <strong>Adidas</strong>
+          </div>
+          <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+            <span class="icon-room"></span> New York, New York
+          </div>
+          <div class="job-listing-meta">
+            <button class="button-3" role="button">Accept</button>
+            <button class="button-3" role="button" style="background-color: red;">Reject</button>
+
+          </div>
+        </div>
+      </li>
+      
+
+      
+    </ul>
+
+    
+
+  </div>
+</section>
+
+
+
+{% endblock %}
