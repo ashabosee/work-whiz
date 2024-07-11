@@ -6,6 +6,8 @@ app = Flask(__name__)
 
 app.secret_key = 'Qi7lbesp$=lqay=5t@r4'
 
+conn = sqlite3.connect('database.db')
+
 
 @app.route("/")
 def home():
@@ -94,10 +96,10 @@ def job_post():
 def init_sqlite_db():
     conn = sqlite3.connect('database.db')
     print("Opened database successfully")
-
+    
     conn.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT)')
     conn.execute('CREATE TABLE IF NOT EXISTS company (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, tagline TEXT, website TEXT)')
-    conn.execute('CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT, region TEXT, type TEXT, desc TEXT, company_id TEXT, time TEXT)')
+    conn.execute('CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT, region TEXT, type TEXT, desc TEXT, VACANCY TEXT, exp TEXT, sal TEXT, edu TEXT, company_id TEXT, time TEXT)')
 
     print("Table created successfully")
     conn.close()
@@ -135,6 +137,9 @@ def signup():
         s_email = request.form['sign_email']
         s_password = request.form['sign_password']
         re_password = request.form['sign_re_password']
+
+        print(s_email)
+        print(s_password)
         
         if s_password == re_password:
             hashed_password = generate_password_hash(s_password, method='pbkdf2:sha256')
@@ -155,8 +160,11 @@ def dash():
     email = session['email']
     print(email)
     conn = sqlite3.connect('database.db')
+    if conn:
+        print("connected")
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM jobs")
+    cr = cursor.execute("SELECT * FROM jobs")
+    print(cr)
     jobs = cursor.fetchall()
     conn.close()
     print(jobs)
@@ -196,17 +204,21 @@ def company_add_post():
         region = request.form['region']
         type = request.form['job-type']
         desc = request.form['job-description']
+        vacancy=request.form['vacancy']
+        exp=request.form['experience']
+        sal=request.form['salary']
+        edu=request.form['education']
         time1 = time.time()
         c_id = session['email']
 
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO jobs (category,region,type,desc,company_id,time) VALUES (?, ?, ?, ?, ?, ?)", (category,region, type, desc, c_id, time1))
+        cursor.execute("INSERT INTO jobs (category,region,type,desc,vacancy,exp,sal,edu,company_id,time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (category,region, type, desc, vacancy, exp, sal, edu, c_id, time1))
         conn.commit()
         conn.close()
 
 
-    return render_template("job_post.html")  
+    return render_template("company-posts.html")  
 
 @app.route("/logout")
 def logout():
