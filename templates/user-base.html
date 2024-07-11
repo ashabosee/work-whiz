@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>WorkWhizz &mdash; Website Template by Colorlib</title>
+    <title>Work Whiz > {%block title%}{%endblock%}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -45,7 +45,7 @@
     <header class="site-navbar mt-3">
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="site-logo col-6"><a href="index.html">WORKWHIZZ</a></div>
+          <div class="site-logo col-6"><a href="index.html">JobBoard</a></div>
 
           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
@@ -95,7 +95,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <h1 class="text-white font-weight-bold">Posted Jobs</h1>
+            <h1 class="text-white font-weight-bold">{{self.title()}}</h1>
             <div class="custom-breadcrumbs">
               <span class="text-white"><strong>asha@mail.com</strong></span>
             </div>
@@ -104,46 +104,10 @@
       </div>
     </section>
 
-    <section class="site-section" id="next">
-      <div class="container">
+    {%block content%}
 
-        <div class="row mb-5 justify-content-center">
-          <div class="col-md-7 text-center">
-            <h2 class="section-title mb-2">22,392 People Applied</h2>
-          </div>
-        </div>
-        
-        <ul class="job-listings mb-5">
-
-
-          <!-- item -->
-
-          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-            <a href="/job-details"></a>
-            
-
-            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-              <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-                <h2>Product Designer</h2>
-                <strong>Adidas</strong>
-              </div>
-              <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                <span class="icon-room"></span> New York, New York
-              </div>
-              <div class="job-listing-meta">
-                <span class="badge badge-success">Apply Now</span>
-              </div>
-            </div>
-          </li>
-          
-
-          
-        </ul>
-
-        
-
-      </div>
-    </section>
+    {%endblock%}
+   
     
 
     <section class="bg-light pt-5 testimony-full">

@@ -38,12 +38,17 @@ def index():
 @app.route("/company/login", methods = ['GET','POST'])
 def company_login():
     if request.method == 'POST':
-        login_email = request.form['log_email']
-        login_pass  = request.form['log_password']
+        login_email = None
+        login_pass = None
+        try:
+            login_email = request.form['log_email']
+            login_pass  = request.form['log_password']
+        except Exception as e:
+            print(e)
         if login_email is not None and login_pass is not None:
             conn = sqlite3.connect('database.db')
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM users WHERE email = ?", (login_email,))
+            cursor.execute("SELECT * FROM company WHERE email = ?", (login_email,))
             user = cursor.fetchone()
             conn.close()
         
@@ -77,7 +82,7 @@ def company_login():
 
 
 
-@app.route("/post_job")
+@app.route("/post-job")
 def post_job():
     return render_template("post-job.html")  
 
@@ -92,7 +97,7 @@ def init_sqlite_db():
 
     conn.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT)')
     conn.execute('CREATE TABLE IF NOT EXISTS company (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, password TEXT, name TEXT, tagline TEXT, website TEXT)')
-    conn.execute('CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, region TEXT, type TEXT, desc TEXT, company_id TEXT, time TEXT)')
+    conn.execute('CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT, region TEXT, type TEXT, desc TEXT, company_id TEXT, time TEXT)')
 
     print("Table created successfully")
     conn.close()
@@ -147,7 +152,16 @@ def signup():
 
 @app.route('/dashboard')
 def dash():
-    return render_template('all-job.html')
+    email = session['email']
+    print(email)
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM jobs")
+    jobs = cursor.fetchall()
+    conn.close()
+    print(jobs)
+    job_count = len(jobs)
+    return render_template('user-dash.html', count=job_count, jobs=jobs)
 
 @app.route('/job-details')
 def job_details():
@@ -160,13 +174,15 @@ def job_details():
 @app.route("/company/dashboard")
 def company_dash():
     email = session['email']
+    print(email)
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM jobs WHERE company_id = ?", (email,))
     jobs = cursor.fetchall()
     conn.close()
     print(jobs)
-    return render_template("company-dash.html", jobs = jobs)  
+    job_count = len(jobs)
+    return render_template("company-dash.html", jobs = jobs, count=job_count)  
 
 @app.route('/company/posts')
 def company_posts():
@@ -176,6 +192,7 @@ def company_posts():
 def company_add_post():
 
     if request.method == 'POST':
+        category = request.form['category']
         region = request.form['region']
         type = request.form['job-type']
         desc = request.form['job-description']
@@ -184,7 +201,7 @@ def company_add_post():
 
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO jobs (region,type,desc,company_id,time) VALUES (?, ?, ?, ?, ?)", (region, type, desc, c_id,time1))
+        cursor.execute("INSERT INTO jobs (category,region,type,desc,company_id,time) VALUES (?, ?, ?, ?, ?, ?)", (category,region, type, desc, c_id, time1))
         conn.commit()
         conn.close()
 
@@ -193,7 +210,7 @@ def company_add_post():
 
 @app.route("/logout")
 def logout():
-    return "create logout logic you idiots!!"
+    return "succussfully logout"
 
 
 

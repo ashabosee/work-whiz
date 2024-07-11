@@ -1,0 +1,52 @@
+{%extends "user-base.html" %}
+
+{%block content%} 
+
+{% block header %}
+  <h1 hidden="hidden"> {% block title %} Dashboard {% endblock %} </h1>
+{% endblock %}
+
+<section class="site-section" id="next">
+    <div class="container">
+  
+      <div class="row mb-5 justify-content-center">
+        <div class="col-md-7 text-center">
+          <h2 class="section-title mb-2">{{count}} Jobs Available</h2>
+        </div>
+      </div>
+      
+      <ul class="job-listings mb-5">
+  
+  
+        <!-- item -->
+  
+        {% if jobs is not none%}
+        {% for job in jobs%}
+        <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+          <a href="{{url_for('company_posts')}}"></a>
+          <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+            <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
+              <h2>{{job[1]}}</h2>
+              <strong>{{job[3]}}</strong>
+            </div>
+            <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
+              <span class="icon-room"></span> {{job[2]}}
+            </div>
+            <div class="job-listing-meta">
+              <span class="badge badge-success">Apply Now</span>
+            </div>
+          </div>
+        </li>
+        {%endfor%}
+        {%endif%}
+        
+  
+        
+      </ul>
+  
+      
+  
+    </div>
+  </section>
+
+{%endblock%}
