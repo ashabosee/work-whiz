@@ -23,7 +23,7 @@
         {% if jobs is not none%}
         {% for job in jobs%}
         <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-          <a href="{{url_for('company_posts')}}"></a>
+          <a href="{{url_for('job_details', id=job[0])}}"></a>
           <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
             <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
               <h2>{{job[1]}}</h2>
