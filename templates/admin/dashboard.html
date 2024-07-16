@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Admin Dashboard</title>
+    <style>
+      /* Inline CSS */
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
+
+      .dashboard {
+          width: 80%;
+          margin: 50px auto;
+          padding: 20px;
+          background: #fff;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 5px;
+      }
+
+      h2 {
+          margin-bottom: 20px;
+      }
+
+      ul {
+          list-style-type: none;
+          padding: 0;
+      }
+
+      ul li {
+          margin-bottom: 10px;
+      }
+
+      ul li a {
+          text-decoration: none;
+          color: #007bff;
+      }
+
+      ul li a:hover {
+          text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <h2>Admin Dashboard</h2>
+      <ul>
+        <li><a href="{{ url_for('admin_list_jobs') }}">Manage Jobs</a></li>
+        <!-- Add more links as needed -->
+      </ul>
+    </div>
+  </body>
+</html>

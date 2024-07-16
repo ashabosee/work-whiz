@@ -4,6 +4,13 @@ import time
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 
+
+
+from flask import session
+app.secret_key = 'your_secret_key'
+
+
+
 app = Flask(__name__)
 
 app.secret_key = 'Qi7lbesp$=lqay=5t@r4'
@@ -55,8 +62,8 @@ def index():
 
 
 
-@app.route("/company-login", methods = ['GET','POST'])
-@app.route("/company/login", methods = ['GET','POST'])
+@app.route("/employer_login", methods = ['GET','POST'])
+@app.route("/employer/login", methods = ['GET','POST'])
 def company_login():
     if request.method == 'POST':
         login_email = None
@@ -222,7 +229,7 @@ def apply_job():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     tb_name="APPLIED_"+str(retrieve_current_user()[0])
-    stat  = f"CREATE TABLE IF NOT EXISTS {tb_name}(id INTEGER,job_id text,time text)"
+    stat  = f"CREATE TABLE IF NOT EXISTS {tb_name}(id INTEGER AUTO INCREMENT,job_id text,time text)"
     cursor.execute(stat)
     conn.commit()
 
@@ -243,6 +250,11 @@ def retrieve_current_user():
     user = cursor.fetchone()
     conn.close()
     return user
+
+
+@app.route('/user_aproval')
+def user_aproval():
+    return render_template('user_aproval.html')
 
 
 
@@ -292,6 +304,84 @@ def company_add_post():
 @app.route("/logout")
 def logout():
     return "succussfully logout"
+
+
+
+
+####
+
+@app.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        # Add authentication logic here
+        if username == 'admin' and password == 'admin123':
+            session['admin_logged_in'] = True
+            return redirect('/admin/dashboard')
+    return render_template('admin/login.html')
+
+
+
+@app.route('/admin/dashboard')
+def admin_dashboard():
+    if not session.get('admin_logged_in'):
+        return redirect('/admin/login')
+    return render_template('admin/dashboard.html')
+
+
+@app.route('/admin/jobs')
+def admin_list_jobs():
+    if not session.get('admin_logged_in'):
+        return redirect('/admin/login')
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM jobs")
+    jobs = cursor.fetchall()
+    conn.close()
+    return render_template('admin/jobs.html', jobs=jobs)
+
+
+@app.route('/admin/jobs/edit/<int:job_id>', methods=['GET', 'POST'])
+def admin_edit_job(job_id):
+    if not session.get('admin_logged_in'):
+        return redirect('/admin/login')
+    conn= sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM jobs WHERE id = ?", (job_id,))
+    job = cursor.fetchone()
+    if request.method == 'POST':
+        category = request.form['category']
+        region = request.form['region']
+        type = request.form['type']
+        desc = request.form['desc']
+        vacancy = request.form['vacancy']
+        exp = request.form['exp']
+        sal = request.form['sal']
+        edu = request.form['edu']
+        company_id = request.form['company_id']
+        cursor.execute("""
+            UPDATE jobs 
+            SET category = ?, region = ?, type = ?, desc = ?, vacancy = ?, exp = ?, sal = ?, edu = ?, company_id = ?
+            WHERE id = ?
+        """, (category, region, type, desc, vacancy, exp, sal, edu, company_id, job_id))
+        conn.commit()
+        conn.close()
+        return redirect('/admin/jobs')
+    conn.close()
+    return render_template('admin/edit_job.html', job=job)
+
+@app.route('/admin/jobs/delete/<int:job_id>')
+def admin_delete_job(job_id):
+    if not session.get('admin_logged_in'):
+        return redirect('/admin/login')
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM jobs WHERE id = ?", (job_id,))
+    conn.commit()
+    conn.close()
+    return redirect('/admin/jobs')
+
 
 
 
