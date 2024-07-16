@@ -114,10 +114,14 @@ def company_login():
 def post_job():
     return render_template("post-job.html")  
 
+ 
+
 
 @app.route("/job_post")
 def job_post():
     return render_template("job_post.html")  
+
+
 
 def init_sqlite_db():
     conn = sqlite3.connect('database.db')
@@ -303,7 +307,9 @@ def company_add_post():
 
 @app.route("/logout")
 def logout():
-    return "succussfully logout"
+   return "succussfully logout"
+    
+
 
 
 
