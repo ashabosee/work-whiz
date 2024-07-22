@@ -44,8 +44,8 @@
             <td>{{ job[8] }}</td>
             <td>{{ job[9] }}</td>
             <td>
-              <a href="/admin/jobs/edit/{{ job.id }}" class="btn btn-warning btn-sm">Edit</a>
-              <button class="btn btn-danger btn-sm" onclick="confirmDelete('{{ job.id }}')">Delete</button>
+              <a href="/admin/jobs/edit/{{ job[0] }}" class="btn btn-warning btn-sm">Edit</a>
+              <button class="btn btn-danger btn-sm" onclick="confirmDelete('{{ job[0] }}')">Delete</button>
             </td>
           </tr>
           {% endfor %}

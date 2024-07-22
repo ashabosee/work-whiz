@@ -356,6 +356,11 @@ def admin_edit_job(job_id):
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM jobs WHERE id = ?", (job_id,))
     job = cursor.fetchone()
+
+    if not job:
+        conn.close()
+        flash('Job not found!', 'danger')
+        return redirect('/admin/jobs')
     if request.method == 'POST':
         category = request.form['category']
         region = request.form['region']
